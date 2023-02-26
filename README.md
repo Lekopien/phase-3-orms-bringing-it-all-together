@@ -164,3 +164,16 @@ its functionality! You should change it so that it handles these two cases:
 - If called on a `Dog` instance that _does_ have an ID assigned, use the
   `#update` method to update the existing dog in the database, and return the
   updated `Dog` instance.
+
+
+  # summary
+  -  class named Dog that uses SQLite to persist data. Here is a brief summary of what each method does:
+
+attr_accessor :id, :name, :breed: creates getter and setter methods for the instance variables id, name, and breed.
+initialize(id: nil, name:, breed:): sets the instance variables id, name, and breed for a new Dog instance.
+self.create_table: creates a new table called dogs in the SQLite database if it doesn't exist with columns id, name, and breed.
+self.drop_table: drops the dogs table from the SQLite database.
+save: inserts a new Dog record into the dogs table and returns the Dog instance with its id attribute set.
+self.create(name:, breed:): creates a new Dog instance, saves it to the database using the save method, and returns the instance.
+self.new_from_db(row): takes a row from the dogs table and returns a new Dog instance with the values from the row.
+self.all: returns an array of all Dog instances in the dogs table.
